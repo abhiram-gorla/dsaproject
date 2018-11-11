@@ -77,26 +77,28 @@ nodeptrtree* treeorder(char arr[], nodeptrtree* root,int i, int n)
  return 1;
  else
  return 0;
- }
- char searchtree(char a[],nodeptrtree *treefirst)
- {
- int i=0;
- nodeptrtree *head;
- head=treefirst;
- while(a[i]!="\0")
- {
- if(a[i]==".")
- {
- head=head->left;
- }
- else if(a[i]=="-")
- {
- head=head->right;
- }
- }
- return head->data;
- }
- */
+ }*/
+//function for searching the tree
+char searchtree(char *ai,nodeptrtree* root)
+{
+    nodeptrtree *temp;
+    temp=root;
+    int i=0;
+    while(ai[i]=='.' || ai[i]=='-')
+    {
+        if(ai[i]=='.')
+        {
+            root=root->left;
+        }
+        else if(ai[i]=='-')
+        {
+            root=root->right;
+        }
+        i++;
+    }
+    return root->data;
+    
+}
 
 int main()
 {
@@ -177,8 +179,26 @@ int main()
     }
     int n=sizeof(order1)/sizeof(order1[0]);
     nodeptrtree* root = treeorder(order1,root,0,n);
+    treefirst=root;
     printf("\n\n%c\n\n",root->left->data);
-    
-    
-    
+    char ai[6];
+    scanf("%s",ai);
+    puts(ai);
+    int i=0;
+    char ap;
+    /*while(ai[i]=='.' || ai[i]=='-')
+    {
+        if(ai[i]=='.')
+        {
+            root=root->left;
+        }
+        else if(ai[i]=='-')
+        {
+            root=root->right;
+        }
+        i++;
+    }
+    printf("\n\n\n%c\n\n\n",root->data);*/
+    ap=searchtree(ai,treefirst);
+    printf("%c\n",ap);
 }
