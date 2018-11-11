@@ -99,7 +99,6 @@ char searchtree(char *ai,nodeptrtree* root)
     return root->data;
     
 }
-//function used to converet moprse to char
 nodeptrtree* morsetravel(char c,nodeptrtree* root)
 {
     if(c=='.')
@@ -114,14 +113,14 @@ nodeptrtree* morsetravel(char c,nodeptrtree* root)
     }
 }
 
-int main(int argc, char *argv[])
+int main()
 {
     //variables required
-    nodeptr *head ,*first,*temp;
+    nodeptr *head ,*first,*temp=0;
     nodeptrtree *treehead, *treefirst;
     char c,*a,*ct,order1[60];
     //taking info from file name morseinf.txt
-    FILE *morse,*order,*arg,*argout;
+    FILE *morse,*order;
     morse=fopen("morseinf.txt", "r");//opening file
     if (morse == NULL )//checking file status
     {
@@ -199,7 +198,7 @@ int main(int argc, char *argv[])
     scanf("%s",ai);
     puts(ai);
     int i=0;
-    //char ap;
+    char ap;
     /*while(ai[i]=='.' || ai[i]=='-')
     {
         if(ai[i]=='.')
@@ -213,38 +212,6 @@ int main(int argc, char *argv[])
         i++;
     }
     printf("\n\n\n%c\n\n\n",root->data);*/
-   // ap=searchtree(ai,treefirst);
-    // treehead=treefirst;
-    //printf("%c\n",ap);
-   /* if(strcmp(argv[1],"-f"))
-    {
-        j=0;
-        arg=fopen(argv[2],"r");
-        argout=fopen(argv[3],"w");
-        while((c=fgetc(arg))!=EOF)//reading one by one character to linked list
-        {
-            if(c=='.')
-            {
-                treehead=treehead->left;
-            }
-            else if(c=='-')
-            {
-                treehead=treehead->right;
-            }
-            else if(c==' ')
-            {
-                fprintf(argout,"%c",treehead->data);
-                treehead=treefirst;
-                
-            }
-            else if(c=='/')
-            {
-                fprintf(argout,"%c ",treehead->data);
-                treehead=treefirst;
-            }
-            
-        }
-        
-    }*/
-    
+    ap=searchtree(ai,treefirst);
+    printf("%c\n",ap);
 }
